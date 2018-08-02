@@ -8,19 +8,19 @@ using System.Web.Http;
 
 namespace WebApiWithNinjectSwagger.Controllers
 {
-    public class CaculatorController : ApiController
+    public class CalculatorController : ApiController
     {
-        private readonly ICalculator calculator;
+        private readonly ICalculator _calculator;
 
-        public CaculatorController(ICalculator calculator)
+        public CalculatorController(ICalculator calculator)
         {
-            this.calculator = calculator;
+            this._calculator = calculator;
         }
 
         // GET: api/Caculator
-        public IEnumerable<string> Get()
+        public int Get()
         {
-            return new string[] { "value1", "value2" };
+            return _calculator.Add(1, 2);
         }
 
         // GET: api/Caculator/5
